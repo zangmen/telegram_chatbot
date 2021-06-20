@@ -3,9 +3,14 @@
 使用nodejs所建立的telegram對話機器人的伺服端
 ## 使用套件
 * 'node-telegram-bot-api': https://www.npmjs.com/package/node-telegram-bot-api
-## 指令
-* `/start` : 啟用
+## 指令(bot.js)
+* `/start` : 啟用機器人
 * `/ping`: 測試是否存活
 * `/cal (運算式）`：輸出運算的結果
-* `/today`:取得今天日期
+* `/today`:取得今天日期和星期
 * `/nowTime`:現在的時間
+* `/echo`:回覆主人輸入的內容
+## 啟動服務
+```shell=
+$ node index.js
+```
