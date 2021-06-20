@@ -1,5 +1,5 @@
 var telegram_bot = require('node-telegram-bot-api');
-var token_api = 'You_bot';
+var token_api = '1346777562:AAE4tq5GF2G-XJoADuokVkzpIe25vi2uGEo';
 var bot = new telegram_bot(token_api,{polling: true});
 
 console.log("telegram chat bot server is start running......");
