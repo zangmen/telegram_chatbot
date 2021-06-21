@@ -57,10 +57,11 @@ bot.onText(/\/today/,function (msg) {
 bot.onText(/\/nowTime/,function (msg) {
     var chat = msg.chat.id; //user id
     var Today=new Date().toLocaleString('zh-TW', {timeZone: 'Asia/Taipei'}); //時區
-    /*var h=Today.getHours(); //hour
-    var m=Today.getMinutes(); //min
-    var s=Today.getSeconds(); //sec 
-	var resp = '現在時間(24小時制):  ' + h + '時' + m +'分'+ s +`秒` ; // 要回的句子
+    /* 使用伺服端本地時間
+	  var h=Today.getHours(); //hour
+      var m=Today.getMinutes(); //min
+      var s=Today.getSeconds(); //sec 
+	  var resp = '現在時間(24小時制):  ' + h + '時' + m +'分'+ s +`秒` ; // 要回的句子
     */
 	var resp = '現在時間(24小時制): ' + Today;
 	bot.sendMessage(chat,resp); //回給使用者的函式
