@@ -4,15 +4,25 @@
   "description": "using nodejs make telegram chat bot ",
   "main": "index.js",
   "scripts": {
-    "test": "first start"
+    "start": "node index.js"
   },
   "keywords": [
     "telegram_bot",
     "chat"
   ],
   "author": "zangmenhsu",
-  "license": "GPL",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
+    "express": "^4.17.1",
     "node-telegram-bot-api": "^0.53.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zangmen/telegram_chatbot_nodejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zangmen/telegram_chatbot_nodejs/issues"
+  },
+  "homepage": "https://github.com/zangmen/telegram_chatbot_nodejs#readme"
 }
