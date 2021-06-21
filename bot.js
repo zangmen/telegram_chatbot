@@ -33,34 +33,37 @@ bot.onText(/\/today/,function (msg) {
     var Today=new Date();
     var day=Today.getDay();
     var out_day;
-    if(day==0){
-      out_day="週日";
+    /*把day(0~6)転成星期*/
+	if(day==0){
+      out_day="星期日";
     }else if (day==1) {
-      out_day="週一";
+      out_day="星期一";
     }else if (day==2) {
-      out_day="週二";
+      out_day="星期二";
     }else if (day==3) {
-      out_day="週三";
+      out_day="星期三";
     }else if (day==4) {
-      out_day="週四";
+      out_day="星期四";
     }else if (day==5) {
-      out_day="週五";
+      out_day="星期五";
     }else if (day==6) {
-      out_day="週六";
+      out_day="星期六";
      }
       
-    var resp = '今天是'+ Today.getFullYear()+"/"+(Today.getMonth()+1)+"/"+Today.getDate()+` `+ out_day; // 要回的句子
+    var resp = '今天是'+ out_day; // 要回的句子
     bot.sendMessage(chat,resp); //回給使用者的函式
 });
 
 bot.onText(/\/nowTime/,function (msg) {
     var chat = msg.chat.id; //user id
-    var Today=new Date();
-    var h=Today.getHours(); //hour
+    var Today=new Date().toLocaleString('zh-TW', {timeZone: 'Asia/Taipei'}); //時區
+    /*var h=Today.getHours(); //hour
     var m=Today.getMinutes(); //min
-    var s=Today.getSeconds(); //sec
-    var resp = '現在時間(24小時制):  ' + h + '時' + m +'分'+ s +`秒` ; // 要回的句子
-    bot.sendMessage(chat,resp); //回給使用者的函式
+    var s=Today.getSeconds(); //sec 
+	var resp = '現在時間(24小時制):  ' + h + '時' + m +'分'+ s +`秒` ; // 要回的句子
+    */
+	var resp = '現在時間(24小時制): ' + Today;
+	bot.sendMessage(chat,resp); //回給使用者的函式
 });
 
 bot.onText(/\/cal (.+)/, function (msg,match) {
