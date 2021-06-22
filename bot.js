@@ -24,12 +24,15 @@ bot.onText(/\/start/,function (msg) {
 
 bot.onText(/\/ping/,function (msg) {
     var chat = msg.chat.id; //user id
+	const chatType = msg.chat.type;
     var resp = 'pong'; // 要回的句子
-    bot.sendMessage(chat,resp); //回給使用者的函式
+	if (chatType === 'group' || chatType === 'supergroup' || chatType === 'channel' || chatType === 'private')
+       bot.sendMessage(chat,resp); //回給使用者的函式
 });
 
 bot.onText(/\/today/,function (msg) {
     var chat = msg.chat.id; //user id
+	const chatType = msg.chat.type;
     var Today=new Date();
     var day=Today.getDay();
     var out_day;
@@ -51,11 +54,13 @@ bot.onText(/\/today/,function (msg) {
      }
       
     var resp = '今天是'+ out_day; // 要回的句子
-    bot.sendMessage(chat,resp); //回給使用者的函式
+	if (chatType === 'group' || chatType === 'supergroup' || chatType === 'channel' || chatType === 'private')
+       bot.sendMessage(chat,resp); //回給使用者的函式
 });
 
 bot.onText(/\/nowTime/,function (msg) {
     var chat = msg.chat.id; //user id
+	const chatType = msg.chat.type;
     var Today=new Date().toLocaleString('zh-TW', {timeZone: 'Asia/Taipei'}); //時區
     /* 使用伺服端本地時間
 	  var h=Today.getHours(); //hour
@@ -64,21 +69,26 @@ bot.onText(/\/nowTime/,function (msg) {
 	  var resp = '現在時間(24小時制):  ' + h + '時' + m +'分'+ s +`秒` ; // 要回的句子
     */
 	var resp = '現在時間: ' + Today;
-	bot.sendMessage(chat,resp); //回給使用者的函式
+	if (chatType === 'group' || chatType === 'supergroup' || chatType === 'channel' || chatType === 'private')
+	  bot.sendMessage(chat,resp); //回給使用者的函式
 });
 
 bot.onText(/\/cal (.+)/, function (msg,match) {
    var from = msg.from.id; //user id
+   const chatType = msg.chat.type;
    /*進行運算*/
    var resp = match[1].replace(/[^-()\d/*+.]/g, '');
        resp = '答案是 ' + eval(resp);
-   bot.sendMessage(from,resp);   
+   if (chatType === 'group' || chatType === 'supergroup' || chatType === 'channel' || chatType === 'private')
+      bot.sendMessage(from,resp);   
 });
 
 bot.onText(/\/echo (.+)/, (msg, match) => {
-  const chat = msg.chat.id;
+  const chat = msg.chat.id; 
+  const chatType = msg.chat.type;
   const resp = match[1]; // the captured "whatever"
   // send back the matched "whatever" to the chat
-  bot.sendMessage(chat, resp);
+  if (chatType === 'group' || chatType === 'supergroup' || chatType === 'channel' || chatType === 'private')
+     bot.sendMessage(chat, resp);
 });
 
