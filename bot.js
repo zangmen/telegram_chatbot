@@ -63,7 +63,7 @@ bot.onText(/\/nowTime/,function (msg) {
       var s=Today.getSeconds(); //sec 
 	  var resp = '現在時間(24小時制):  ' + h + '時' + m +'分'+ s +`秒` ; // 要回的句子
     */
-	var resp = '現在時間(24小時制): ' + Today;
+	var resp = '現在時間: ' + Today;
 	bot.sendMessage(chat,resp); //回給使用者的函式
 });
 
