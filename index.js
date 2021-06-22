@@ -1,3 +1,3 @@
 /*放置引用的code*/
-require('./bot');
-//require('./web');
+require('./server_js/bot');
+require('./server_js/web');
