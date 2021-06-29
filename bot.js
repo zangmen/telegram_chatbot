@@ -1,6 +1,7 @@
 var telegram_bot = require('node-telegram-bot-api');
 var token_api = '1346777562:AAE4tq5GF2G-XJoADuokVkzpIe25vi2uGEo';
 var bot = new telegram_bot(token_api,{polling: true});
+var websiteget = require('./modules/websiteget.js');
 
 console.log("telegram chat bot server is start running......");
 
@@ -92,3 +93,15 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
      bot.sendMessage(chat, resp);
 });
 
+bot.onText(/\/getWebsite (.+)/, (msg, match) => {
+  const chat = msg.chat.id; 
+  const chatType = msg.chat.type;
+  const resp = match[1]; // the captured "whatever"
+  const url = resp;
+  websiteget.Get(url);
+  
+  // send back the matched "whatever" to the chat
+  if (chatType === 'group' || chatType === 'supergroup' || chatType === 'channel' || chatType === 'private')
+     bot.sendMessage(chat, "己把網頁輸出成圖片");
+     bot.sendPhoto(chat,'./output_website.png');
+});
