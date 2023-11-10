@@ -15,7 +15,7 @@
   "dependencies": {
     "configparser": "^0.3.9",
     "express": "^4.17.1",
-    "node-telegram-bot-api": "^0.53.0",
+    "node-telegram-bot-api": "^0.64.0",
     "puppeteer": "^16.2.0"
   },
   "repository": {
